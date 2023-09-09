@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Traversing</title>
+    <script>
+        let data = [9,45,2,8,45,23,7,78,0,11,41,77];
+        for(let i= 0;i<data.length;i++){
+            document.write(`Array ${i} : ${data[i]} <br />`);
+        }
+        let x = 3;
+        document.write(`<br /> ${data[x]} <br />`);
+        function getElement(){
+
+            let el = document.getElementById('element').value;
+
+            if(el < data.length && typeof parseInt(el) ==="number" && el >0){
+                alert(data[el]);
+            }
+            else{
+                alert("Array index out of bounds!!")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Array traversal</h1>
+    <input type="text" id="element" placeholder="input a number" />
+    <button onclick="getElement()">Get Element</button>
+</body>
+</html>
