@@ -1,3 +1,4 @@
+/*
 var isPalindrome = function(x) {
     let y = x.toString()
     y = y.split('').reverse().join('')
@@ -8,6 +9,12 @@ var isPalindrome = function(x) {
     return false;
 };
 
+*/
+
+const isPalindrome = function (x) {
+    return x <0 ? false: x === +x.toString().split("").reverse().join("");
+};
 
 var x = isPalindrome(121);
 console.log(x);
+
