@@ -59,10 +59,32 @@
 // console.log(mul([1,2,3,4,5]))
 
 
-function fib(n) {
-    if(n<=1) return n
-    else return fib(n-1)+fib(n-2);
-}
+// function fib(n) {
+//     if(n<=1) return n
+//     else return fib(n-1)+fib(n-2);
+// }
 
 
-console.log(fib(6));
+// console.log(fib(6));
+
+
+// reverse a string
+
+// function reverse(str){
+//     if(str === "") return "";
+//     return reverse(str.substr(1)) + str.charAt(0)
+// }
+
+// // working
+// // reverse("hello") => reverse("ello") + h      1) olleh
+// // reverse("ello") => reverse("llo") + e        2) olle
+// // reverse("llo") => reverse("lo") + l          3) oll
+// // reverse("lo") => reverse("o") + l            4) ol
+// // reverse("o") => o                            5) o will be given back to 
+
+
+
+
+// console.log(reverse("hello"))
+
+
