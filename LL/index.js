@@ -127,6 +127,30 @@ class LinkedList{
     isEmpty(){
         this.size === 0;
     }
+
+    getLength(){
+        let len = 0;
+        let temp = this.head;
+
+        while(temp!==null){
+            len++;
+            temp = temp.next;
+        }
+
+        return len;
+    }
+
+    findMiddle(){
+        let slow = this.head;
+        let fast = this.head;
+
+        while(fast!==null && fast.next!==null){
+            fast = fast.next.next;
+            slow = slow.next
+        }
+
+        return slow.data;
+    }
 }
 
 let list = new LinkedList()
@@ -137,6 +161,8 @@ list.insertAtHead(50);
 list.insertAtHead(34);
 list.insertAt(2,46);
 console.log(list.print())
+console.log(list.getLength())
+console.log(list.findMiddle());
 list.removeAtHead() // 34 will be removed it is delete element at begin
 console.log(list.print())
 list.deleteAt(4)
