@@ -151,6 +151,27 @@ class LinkedList{
 
         return slow.data;
     }
+
+    deleteMiddle(){
+        // Edge case: If the list is empty or has only one element
+        if (!this.head || !this.head.next) {
+            this.head = null;  // Make the list empty if there's only one element
+            this.size = 0;
+            return;
+        }
+        let slow = this.head;
+        let fast = this.head;
+        let prev = null;
+
+        while(fast!==null && fast.next!==null){
+            fast = fast.next.next
+            prev = slow
+            slow = slow.next
+        }
+
+        prev.next = slow.next;
+        this.size--;
+    }
 }
 
 let list = new LinkedList()
@@ -161,12 +182,14 @@ list.insertAtHead(50);
 list.insertAtHead(34);
 list.insertAt(2,46);
 console.log(list.print())
-console.log(list.getLength())
+console.log("length of the linked list is: ",list.getLength())
 console.log(list.findMiddle());
+list.deleteMiddle();
+console.log(list.print())
 list.removeAtHead() // 34 will be removed it is delete element at begin
 console.log(list.print())
 list.deleteAt(4)
 console.log(list.print());
-list.removeElement(46); // 46 will be removed it is delete element by value
+list.removeElement(43); // 46 will be removed it is delete element by value
 console.log(list.searchElement(50)) // 0
 console.log(list.print())
