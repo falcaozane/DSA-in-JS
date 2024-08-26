@@ -172,6 +172,37 @@ class LinkedList{
         prev.next = slow.next;
         this.size--;
     }
+
+    swap(x,y){
+        let temp = x.data;
+        x.data = y.data;
+        y.data = temp;
+    }
+
+    bubbleSort(){
+        let swapped;
+        let current;
+        let last = null;
+
+        if(!this.head || !this.head.next){
+            return;
+        }
+
+        do {
+            swapped=false;
+            current = this.head;
+            while(current.next!=last){
+                if(current.data>current.next.data){
+                    this.swap(current,current.next);
+                    swapped=true;
+                }
+                current = current.next;
+            }
+            last = current;
+        } while (swapped);
+    }
+
+
 }
 
 let list = new LinkedList()
@@ -182,6 +213,7 @@ list.insertAtHead(50);
 list.insertAtHead(34);
 list.insertAt(2,46);
 console.log(list.print())
+//list.sort()
 console.log("length of the linked list is: ",list.getLength())
 console.log(list.findMiddle());
 list.deleteMiddle();
