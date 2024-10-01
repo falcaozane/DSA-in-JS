@@ -1,28 +1,14 @@
+// link : https://leetcode.com/problems/missing-number/
 
-
-
-function missingNumber(a, N) {
-    // Summation of first N numbers:
-    const summation = (N * (N + 1)) / 2;
-  
-    // Summation of all array elements:
-    let s2 = 0;
-    for (let i = 0; i < N - 1; i++) {
-      s2 += a[i];
-    }
-  
-    const missingNum = summation - s2;
-    return missingNum;
-  }
-  
-  function main() {
-    const N = 5;
-    const a = [1, 2, 4, 5];
-    const ans = missingNumber(a, N);
-    console.log("The missing number is:", ans);
-  }
-  
-  main();
-  
-  
-  
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function(nums) {
+  let sum = 0;
+   let n = nums.length;
+   for(let i=0; i<n; i++){
+       sum += nums[i];
+   }
+   return n*(n+1)/2 - sum;
+};
