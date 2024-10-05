@@ -161,7 +161,7 @@ stack.print();
 
 console.log();
 
-console.log("\nSorting stack in ascending order:");
+console.log("\nSorting stack in ascending order: \n");
 stack.sortStack();
 stack.print();
 
