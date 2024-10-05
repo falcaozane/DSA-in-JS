@@ -8,6 +8,10 @@ class Stack{
         return this.items.length===0;
     }
 
+    size() {
+        return this.items.length;
+    }
+
     push(item){
         this.items = [...this.items,item]
         // or this.items.push(item)
@@ -72,6 +76,39 @@ class Stack{
         // Recursively call to reverse the remaining elements
         this.reverse(left + 1, right - 1);
     }
+
+    sortStack() {
+        this.items.sort((a, b) => a - b); // asc for desc b-a
+    }
+
+
+    getMin() {
+        if (this.isEmpty()) {
+            console.log("Stack is empty.");
+            return null;
+        }
+        return Math.min(...this.items);
+    }
+
+    getMax() {
+        if (this.isEmpty()) {
+            console.log("Stack is empty.");
+            return null;
+        }
+        return Math.max(...this.items);
+    }
+
+    // Search for an element and return its index
+    search(element) {
+        const index = this.items.indexOf(element);
+        if (index === -1) {
+            console.log(`${element} not present in the stack.`);
+            return -1;
+        } else {
+            console.log(`${element} present at index ${index}.`);
+            return index;
+        }
+    }
 }
 
 
@@ -86,11 +123,19 @@ stack.push(5);
 stack.print()
 
 console.log();
-console.log("Popped element: ",stack.pop());
 
-console.log("Top of the stack: ",stack.peek());
+console.log("Minimum element in stack:", stack.getMin());
+console.log("Maximum element in stack:", stack.getMax());
+
 
 console.log();
+
+console.log(" Popped element: ",stack.pop());
+
+console.log("\n Top of the stack: ",stack.peek());
+
+console.log();
+
 
 console.log("Reversing the stack...");
 
@@ -113,3 +158,19 @@ stack.swap(0, 1);
 console.log();
 console.log("After swap:");
 stack.print();
+
+console.log();
+
+console.log("\nSorting stack in ascending order:");
+stack.sortStack();
+stack.print();
+
+console.log();
+
+
+
+// Searching for an element
+stack.search(3); // Should print that 3 is found at index 2
+stack.search(6); // Should print that 6 is not found in the stack
+
+console.log();
