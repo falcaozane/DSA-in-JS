@@ -1,20 +1,3 @@
-/*
- brute force : o(n^2)
-
-var twoSum = function(nums, target) {
-    var num = []
-    for(let i=0;i<nums.length;i++){
-        for(let j=i+1;j<nums.length;j++){
-            if(nums[i]+nums[j]===target){
-            num[0] = i
-            num[1] = j
-        }
-        }
-    }
-    return num
-};
-*/
-
 // optimal using map : O(n)
 var twoSum = function(nums, target) {
     let map = new Map();
