@@ -4,7 +4,7 @@
 // sliding window
 
 var characterReplacement = function(s, k) {
-    let count = new Array(26).fill(0);
+    let count = new Array(26).fill(0); // fill array of length 26 with zeros
     let maxCount = 0;
     let i = 0;
     let result = 0;
@@ -23,3 +23,8 @@ var characterReplacement = function(s, k) {
 
     return result;
 };
+
+
+let str = "ABAB"
+let k=2
+console.log(characterReplacement(str,k));
