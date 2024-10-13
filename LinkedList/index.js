@@ -202,6 +202,22 @@ class LinkedList{
         } while (swapped);
     }
 
+    reverseList(node = this.head) {
+        // Base case: if we reach the end or the list is empty
+        if (node === null || node.next === null) {
+            this.head = node;  // Set the last node as the new head
+            return node;
+        }
+
+        // Recursive step: reverse the rest of the list
+        let reversedList = this.reverseList(node.next);
+
+        // Reverse the current node's pointer
+        node.next.next = node;
+        node.next = null;
+
+        return reversedList;
+    }
 
 }
 
@@ -212,11 +228,14 @@ list.insertAtHead(43);
 list.insertAtHead(50);
 list.insertAtHead(34);
 list.insertAt(2,46);
+list.reverseList();
 console.log(list.print())
 //list.sort()
 console.log("length of the linked list is: ",list.getLength())
-console.log(list.findMiddle());
-list.deleteMiddle();
+console.log("middle element of the linked list is: ",list.findMiddle());
+list.reverseList();
+console.log(list.print());
+list.deleteMiddle(); // 46 will be deleted
 console.log(list.print())
 list.removeAtHead() // 34 will be removed it is delete element at begin
 console.log(list.print())
@@ -224,4 +243,4 @@ list.deleteAt(4)
 console.log(list.print());
 list.removeElement(43); // 46 will be removed it is delete element by value
 console.log(list.searchElement(50)) // 0
-console.log(list.print())
+console.log(list.print());
