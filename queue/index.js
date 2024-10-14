@@ -6,7 +6,7 @@ class Queue{
     }
 
     isEmpty(){
-        return this.front===this.front;
+        return this.front===this.rear;
     }
 
     enqueue(item){
@@ -15,7 +15,7 @@ class Queue{
     }
 
     dequeue(){
-        if(this.isEmpty){
+        if(this.isEmpty()){
             console.log("Queue is empty")
         }
         else{
@@ -27,7 +27,7 @@ class Queue{
     }
 
     peek(){
-        if(this.isEmpty){
+        if(this.isEmpty()){
             console.log("Queue is empty")
         }
         else{
@@ -37,17 +37,21 @@ class Queue{
     }
 
     print(){
-        if(this.isEmpty){
+        if(this.isEmpty()){
+            console.log("----------------")
             console.log("Queue is empty")
+            console.log("----------------")
         }
         else{
             const contents = []
-            let index = this.front
-            while(index <this.rear){
-                contents.push[index]
+            let index = this.front;
+            while(index < this.rear){
+                contents.push(this.items[index])
                 index++
             }
+            console.log("----------------")
             console.log(contents)
+            console.log("----------------")
         }
     }
 }
@@ -59,5 +63,15 @@ q.enqueue(2)
 q.enqueue(3)
 q.enqueue(4)
 q.enqueue(5)
+
+q.print()
+
+console.log(q.dequeue())
+
+q.enqueue(6)
+
+q.print()
+
+console.log(q.peek())
 
 q.print()
