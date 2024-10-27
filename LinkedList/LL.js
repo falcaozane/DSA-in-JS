@@ -8,11 +8,12 @@ class Node {
 class LinkedList {
     constructor(){
         this.head = null;
+        this.tail = null;
         this.size = 0;
     }
 
     isEmpty(){
-        return this.size ===0;
+        return this.size === 0;
     }
 
     getSize(){
@@ -20,22 +21,37 @@ class LinkedList {
     }
 
     prepend(value){
-        //const newNode = new Node(value);
-        const newNode = new Node();
-        newNode.data = value;
-        
-        newNode.next = this.head;
-        this.head = newNode;
+        const newNode = new Node(value);
+        if(this.isEmpty()){
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.size++;
+    }
+
+    append(value){
+        const newNode = new Node(value);
+        if(this.isEmpty()){
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
         this.size++;
     }
 
     print(){
         let temp = this.head;
+        let output = '';
         while(temp){
-            process.stdout.write(temp.data + " -> ");
+            output += temp.data + " -> ";
             temp = temp.next;
         }
-        console.log("null");
+        console.log(output + "null");
     }
 }
 
@@ -44,4 +60,6 @@ let list = new LinkedList()
 list.prepend(43);
 list.prepend(45);
 list.prepend(46);
+list.append(47);
+list.append(48);
 list.print();
