@@ -53,9 +53,33 @@ const maxProfitHux=(prices) => {
     return maxProfit
 }
 
+function maxProfitTwoPointers(prices) {
+    let left = 0;  // Represents the buying day
+    let right = 1; // Represents the selling day
+    let maxProfit = 0;
+  
+    while (right < prices.length) {
+      if (prices[left] < prices[right]) {
+        let currentProfit = prices[right] - prices[left];
+        maxProfit = Math.max(maxProfit, currentProfit);
+      } else {
+        // If the selling price is lower than the buying price,
+        // move the buying day pointer to the current selling day.
+        left = right;
+      }
+      right++; // Move the selling day pointer to the next day.
+    }
+  
+    return maxProfit;
+  }
+  
+  
+
 
 
 
 console.log(maxProfit(prices));
 
 console.log(maxProfitHux(prices));
+
+console.log(maxProfitTwoPointers(prices));
