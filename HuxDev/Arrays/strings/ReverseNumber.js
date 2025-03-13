@@ -1,0 +1,7 @@
+const reverseNumber = (n) => {
+    const reversed = n.toString().split("").reverse().join("");
+
+    return parseInt(reversed)*Math.sign(n);
+}
+
+console.log(reverseNumber(-123));
