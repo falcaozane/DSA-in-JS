@@ -3,6 +3,19 @@ from typing import List
 
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
+        
+        ## Brute Force Approach
+        # count = 0
+        # n = len(nums)
+        # for i in range(n):
+        #     sum = 0
+        #     for j in range(i,n):
+        #         sum +=nums[j]
+        #         if sum == k:
+        #             count +=1
+        # return count
+        
+        ## Optimal Approach using HashMap
         mp = {0:1}
         curr_sum , count = 0,0
         for num in nums:
